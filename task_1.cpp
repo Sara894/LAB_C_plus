@@ -21,7 +21,7 @@ int main(){
     srand(time(NULL));
     
     cout<<"______________________________________"<<endl;
-    for(int t=0; t<N; t++) cin>> arr[t];//arr[t] = rand() % 45;//заполняем массив числами от 0 до 45
+    for(int t=0; t<N; t++) arr[t] = rand() % 45;//заполняем массив числами от 0 до 45
     for(int t=0; t<N; t++) {
         cout<<t <<"    "<<arr[t]<<endl;//проверка 
         if(arr[t] < M){
