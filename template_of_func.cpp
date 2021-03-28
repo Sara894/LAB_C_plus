@@ -4,8 +4,8 @@ using namespace std;
 //шаблонной функции пофиг на тип переменной
 // ключевое слово template
 
-template <typename T> // мы не знаем какой параметр будем принимать 
- int Sum(T a, T b){
+template <typename T1, typename T2> // мы не знаем какой параметр будем принимать 
+ T1 Sum(T1 a, T2 b){
      return a+b;
  }
 
