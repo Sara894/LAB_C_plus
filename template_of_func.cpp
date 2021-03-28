@@ -9,6 +9,8 @@ template <typename T1, typename T2> // мы не знаем какой пара�
      return a+b;
  }
 
+ 
+
 
 /* int Sum(int a, int b){
 
