@@ -164,35 +164,36 @@ int menu()
 
     return choice;
 }
-int statistic(stack<man> st, int age, int edu, int pol, int que, int name)
+void statistic(stack<man> st)
 {
-    man f = st.top();
-    int count = 0;
-    while (!st.empty())
+    int Man40count = 0;
+    int Man25count = 0;
+    int Woman30count = 0;
+     while (!st.empty())
     {
-        switch (name)
+          man f = st.top();
+        if ((f.age >= 40) && (f.edu == 3) && (f.pol == 1) && (f.que == 1))
         {
-        case 1:
-          {
-                if ((f.age >= age) && (f.edu >= edu) && (f.pol == pol) && (f.que == que))
-                count++;
-            break; //старше
-          }
-        case 0:
-           {
-                if ((f.age <= age) && (f.edu >= edu) && (f.pol == pol) && (f.que == que))
-                count++;
-            break; // младше
-           }
-        default:
-            cout << " Hello" << endl;
+            Man40count++;
+            cout << "сколько мужчин старше 40 лет, имеющих высшее образование, ответили ДА :" << Man40count << endl;
         }
+        if ((f.age <= 25) && (f.edu >= 1) && (f.pol == 1) && (f.que == 1))
+        {
+            Man25count++;
+            cout << "мужчин моложе 25 лет, имеющих начальное образование, ответили ДА :  " << Man25count << endl;
+        }
+
+        if ((f.age <= 30) && (f.edu >= 2) && (f.pol == 0) && (f.que == 0))
+        {
+            Woman30count++;
+            cout << "сколько женщин моложе 30 лет, имеющих среднее образование, ответили НЕТ :" << Woman30count << endl;
+        }
+
         st.pop();
-    }
-    return count;
+    } 
 }
 
-void printAnketa(stack<man> st)
+/* void printAnketa(stack<man> st)
 {
     //сколько мужчин старше 40 лет, имеющих высшее образование, ответили ДА на вопрос анкеты;
     int countMen40 = statistic(st, 40, 3, 1, 1, 1); // код 1 - значит поиск по возрасту "старше"
@@ -204,7 +205,7 @@ void printAnketa(stack<man> st)
     int countMen25 = statistic(st, 25, 1, 1, 1, 0);
     cout << "мужчин моложе 25 лет, имеющих начальное образование, ответили ДА :  " << countMen25 << endl;
 }
-
+ */
 int main()
 {
     stack<man> st;
@@ -216,7 +217,7 @@ int main()
             inputMan(st);
             break;
         case 2:
-            printAnketa(st);
+            statistic(st);
             break;
         case 3:
             viewAllMans(st);
